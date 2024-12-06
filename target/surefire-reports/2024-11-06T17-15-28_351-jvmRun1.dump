@@ -1,0 +1,294 @@
+# Created at 2024-11-06T17:15:39.727
+Thread dump for process (23508@ChenXing):
+"main" 
+   java.lang.Thread.State: WAITING
+        at java.base@11.0.25/jdk.internal.misc.Unsafe.park(Native Method)
+        at java.base@11.0.25/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+        at java.base@11.0.25/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081)
+        at app//com.alibaba.druid.pool.DruidDataSource.takeLast(DruidDataSource.java:2029)
+        at app//com.alibaba.druid.pool.DruidDataSource.getConnectionInternal(DruidDataSource.java:1557)
+        at app//com.alibaba.druid.pool.DruidDataSource.getConnectionDirect(DruidDataSource.java:1337)
+        at app//com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1317)
+        at app//com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1307)
+        at app//com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:109)
+        at app//org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:159)
+        at app//org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:117)
+        at app//org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:80)
+        at app//org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:84)
+        at app//org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:70)
+        at app//org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:337)
+        at app//org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:86)
+        at app//org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+        at app//org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325)
+        at app//org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+        at app//org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+        at app//org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89)
+        at app//org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+        at app//org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+        at app//org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76)
+        at java.base@11.0.25/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at java.base@11.0.25/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at java.base@11.0.25/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.base@11.0.25/java.lang.reflect.Method.invoke(Method.java:566)
+        at app//org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:434)
+        at app//com.sun.proxy.$Proxy29.selectOne(Unknown Source)
+        at app//org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:167)
+        at app//org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87)
+        at app//org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:152)
+        at app//org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:85)
+        at app//com.sun.proxy.$Proxy33.selectAdminByUsername(Unknown Source)
+        at app//com.ssm.service.impl.AdminServiceImpl.selectAdminByUsername(AdminServiceImpl.java:21)
+        at app//com.ssm.service.CourseServiceTest.selectAdminByUsername(CourseServiceTest.java:147)
+        at java.base@11.0.25/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at java.base@11.0.25/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at java.base@11.0.25/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.base@11.0.25/java.lang.reflect.Method.invoke(Method.java:566)
+        at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+        at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+        at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+        at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+        at app//org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+        at app//org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+        at app//org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+        at app//org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+        at app//org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+        at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+        at app//org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+        at app//org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+        at app//org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+        at app//org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+        at app//org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+        at app//org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+        at app//org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+        at app//org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+        at app//org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+        at app//org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+        at app//org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+        at app//org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+        at app//org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+        at app//org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+        at app//org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+"Reference Handler" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@11.0.25/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+        at java.base@11.0.25/java.lang.ref.Reference.processPendingReferences(Reference.java:241)
+        at java.base@11.0.25/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:213)
+
+"Finalizer" 
+   java.lang.Thread.State: WAITING
+        at java.base@11.0.25/java.lang.Object.wait(Native Method)
+        at java.base@11.0.25/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+        at java.base@11.0.25/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
+        at java.base@11.0.25/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:170)
+
+"Signal Dispatcher" 
+   java.lang.Thread.State: RUNNABLE
+
+"Attach Listener" 
+   java.lang.Thread.State: RUNNABLE
+
+"Common-Cleaner" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@11.0.25/java.lang.Object.wait(Native Method)
+        at java.base@11.0.25/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+        at java.base@11.0.25/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:148)
+        at java.base@11.0.25/java.lang.Thread.run(Thread.java:829)
+        at java.base@11.0.25/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:161)
+
+"surefire-forkedjvm-stream-flusher" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@11.0.25/jdk.internal.misc.Unsafe.park(Native Method)
+        at java.base@11.0.25/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+        at java.base@11.0.25/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+        at java.base@11.0.25/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+        at java.base@11.0.25/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+        at java.base@11.0.25/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+        at java.base@11.0.25/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+        at java.base@11.0.25/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base@11.0.25/java.lang.Thread.run(Thread.java:829)
+
+"surefire-forkedjvm-command-thread" 
+   java.lang.Thread.State: RUNNABLE
+        at java.management@11.0.25/sun.management.ThreadImpl.getThreadInfo1(Native Method)
+        at java.management@11.0.25/sun.management.ThreadImpl.getThreadInfo(ThreadImpl.java:197)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.generateThreadDump(ForkedBooter.java:579)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.access$600(ForkedBooter.java:79)
+        at app//org.apache.maven.surefire.booter.ForkedBooter$4.update(ForkedBooter.java:322)
+        at app//org.apache.maven.surefire.booter.CommandReader$CommandRunnable.callListeners(CommandReader.java:357)
+        at app//org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:309)
+        at java.base@11.0.25/java.lang.Thread.run(Thread.java:829)
+
+"mysql-cj-abandoned-connection-cleanup" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@11.0.25/java.lang.Object.wait(Native Method)
+        at java.base@11.0.25/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+        at app//com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:91)
+        at java.base@11.0.25/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base@11.0.25/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base@11.0.25/java.lang.Thread.run(Thread.java:829)
+
+"Druid-ConnectionPool-Create-2056566350" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@11.0.25/java.lang.Thread.sleep(Native Method)
+        at app//com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2624)
+
+"Druid-ConnectionPool-Destroy-2056566350" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@11.0.25/java.lang.Thread.sleep(Native Method)
+        at app//com.alibaba.druid.pool.DruidDataSource$DestroyConnectionThread.run(DruidDataSource.java:2672)
+
+
+
+# Created at 2024-11-06T17:15:39.729
+Exiting self fork JVM. Received SHUTDOWN command from Maven shutdown hook.
+Thread dump before exiting the process (23508@ChenXing):
+"main" 
+   java.lang.Thread.State: WAITING
+        at java.base@11.0.25/jdk.internal.misc.Unsafe.park(Native Method)
+        at java.base@11.0.25/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+        at java.base@11.0.25/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081)
+        at app//com.alibaba.druid.pool.DruidDataSource.takeLast(DruidDataSource.java:2029)
+        at app//com.alibaba.druid.pool.DruidDataSource.getConnectionInternal(DruidDataSource.java:1557)
+        at app//com.alibaba.druid.pool.DruidDataSource.getConnectionDirect(DruidDataSource.java:1337)
+        at app//com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1317)
+        at app//com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1307)
+        at app//com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:109)
+        at app//org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:159)
+        at app//org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:117)
+        at app//org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:80)
+        at app//org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:84)
+        at app//org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:70)
+        at app//org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:337)
+        at app//org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:86)
+        at app//org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+        at app//org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325)
+        at app//org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+        at app//org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+        at app//org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89)
+        at app//org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+        at app//org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+        at app//org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76)
+        at java.base@11.0.25/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at java.base@11.0.25/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at java.base@11.0.25/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.base@11.0.25/java.lang.reflect.Method.invoke(Method.java:566)
+        at app//org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:434)
+        at app//com.sun.proxy.$Proxy29.selectOne(Unknown Source)
+        at app//org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:167)
+        at app//org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87)
+        at app//org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:152)
+        at app//org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:85)
+        at app//com.sun.proxy.$Proxy33.selectAdminByUsername(Unknown Source)
+        at app//com.ssm.service.impl.AdminServiceImpl.selectAdminByUsername(AdminServiceImpl.java:21)
+        at app//com.ssm.service.CourseServiceTest.selectAdminByUsername(CourseServiceTest.java:147)
+        at java.base@11.0.25/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at java.base@11.0.25/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at java.base@11.0.25/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.base@11.0.25/java.lang.reflect.Method.invoke(Method.java:566)
+        at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+        at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+        at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+        at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+        at app//org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+        at app//org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+        at app//org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+        at app//org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+        at app//org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+        at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+        at app//org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+        at app//org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+        at app//org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+        at app//org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+        at app//org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+        at app//org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+        at app//org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+        at app//org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+        at app//org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+        at app//org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+        at app//org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+        at app//org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+        at app//org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+        at app//org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+        at app//org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+"Reference Handler" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@11.0.25/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+        at java.base@11.0.25/java.lang.ref.Reference.processPendingReferences(Reference.java:241)
+        at java.base@11.0.25/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:213)
+
+"Finalizer" 
+   java.lang.Thread.State: WAITING
+        at java.base@11.0.25/java.lang.Object.wait(Native Method)
+        at java.base@11.0.25/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+        at java.base@11.0.25/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
+        at java.base@11.0.25/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:170)
+
+"Signal Dispatcher" 
+   java.lang.Thread.State: RUNNABLE
+
+"Attach Listener" 
+   java.lang.Thread.State: RUNNABLE
+
+"Common-Cleaner" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@11.0.25/java.lang.Object.wait(Native Method)
+        at java.base@11.0.25/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+        at java.base@11.0.25/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:148)
+        at java.base@11.0.25/java.lang.Thread.run(Thread.java:829)
+        at java.base@11.0.25/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:161)
+
+"surefire-forkedjvm-stream-flusher" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@11.0.25/jdk.internal.misc.Unsafe.park(Native Method)
+        at java.base@11.0.25/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+        at java.base@11.0.25/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+        at java.base@11.0.25/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+        at java.base@11.0.25/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+        at java.base@11.0.25/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+        at java.base@11.0.25/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+        at java.base@11.0.25/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base@11.0.25/java.lang.Thread.run(Thread.java:829)
+
+"surefire-forkedjvm-command-thread" 
+   java.lang.Thread.State: RUNNABLE
+        at java.management@11.0.25/sun.management.ThreadImpl.getThreadInfo1(Native Method)
+        at java.management@11.0.25/sun.management.ThreadImpl.getThreadInfo(ThreadImpl.java:197)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.generateThreadDump(ForkedBooter.java:579)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.access$600(ForkedBooter.java:79)
+        at app//org.apache.maven.surefire.booter.ForkedBooter$4.update(ForkedBooter.java:315)
+        at app//org.apache.maven.surefire.booter.CommandReader$CommandRunnable.callListeners(CommandReader.java:357)
+        at app//org.apache.maven.surefire.booter.CommandReader$CommandRunnable.exitByConfiguration(CommandReader.java:367)
+        at app//org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:330)
+        at java.base@11.0.25/java.lang.Thread.run(Thread.java:829)
+
+"mysql-cj-abandoned-connection-cleanup" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@11.0.25/java.lang.Object.wait(Native Method)
+        at java.base@11.0.25/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+        at app//com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:91)
+        at java.base@11.0.25/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base@11.0.25/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base@11.0.25/java.lang.Thread.run(Thread.java:829)
+
+"Druid-ConnectionPool-Create-2056566350" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@11.0.25/java.lang.Thread.sleep(Native Method)
+        at app//com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2624)
+
+"Druid-ConnectionPool-Destroy-2056566350" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@11.0.25/java.lang.Thread.sleep(Native Method)
+        at app//com.alibaba.druid.pool.DruidDataSource$DestroyConnectionThread.run(DruidDataSource.java:2672)
+
+
+

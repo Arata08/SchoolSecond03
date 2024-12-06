@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>我的空间</title>
+    <meta name="theme-color" content="#ffc91d"/>
+    <link rel="stylesheet" href="../../plugins/elementui/index.css">
+    <link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link href="../../css/kico.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/paul.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="hold-transition">
+<div id="app">
+<main>
+    <section>
+
+
+            <h2 class="title">个人信息</h2>
+
+            <div class="row" :data="userInfo">
+                <div class="col-l-4">
+                    <p>姓名：{{userInfo.name}}</p>
+                    <p>学号：{{userInfo.username}}</p>
+                    <p>收货地址：{{userInfo.address}}</p>
+<!--                    <p>学号：{{userInfo.xtucard}}</p>-->
+                </div>
+                <div class="col-l-4" >
+                    <p>QQ：{{userInfo.qq}}</p>
+                    <p>电话号码:{{userInfo.phone}}</p>
+                    <p>购物ID：{{userInfo.id}}</p>
+                </div>
+                <div class="col-l-4">
+                    <p>个人介绍：{{userInfo.introduction}}</p>
+
+                </div>
+            </div>
+
+            <template>
+                <el-button type="primary" @click="handleUpdate()">编辑我的信息</el-button>
+            </template>
+
+            <div>
+
+                <el-dialog :visible.sync="dialogFormVisible4Edit">
+
+                    <el-form :model="formData" :rules="rules">
+
+                        <el-row>
+
+<!--                            <el-col :span="12">-->
+
+<!--                                <el-form-item label="用户名" prop="username">-->
+
+<!--                                    <el-input v-model="formData.username"/>-->
+
+<!--                                </el-form-item>-->
+
+
+<!--                            </el-col>-->
+
+                            <el-col :span="12">
+
+                                <el-form-item label="密码" prop="password" type="password">
+
+                                    <el-input v-model="formData.password" type="password"/>
+
+                                </el-form-item>
+
+                            </el-col>
+
+                        </el-row>
+
+                        <el-row>
+
+                            <el-col :span="24">
+
+                                <el-form-item label="介绍" prop="introduction">
+
+                                    <el-input v-model="formData.introduction" type="textarea"></el-input>
+
+                                </el-form-item>
+
+                            </el-col>
+
+                            <el-col :span="12">
+
+                                <el-form-item label="QQ账号" prop="qq">
+
+                                    <el-input v-model="formData.qq"/>
+
+                                </el-form-item>
+
+                            </el-col>
+
+                            <el-col :span="12">
+
+                                <el-form-item label="电话号码" prop="phone">
+
+                                    <el-input v-model="formData.phone"/>
+
+                                </el-form-item>
+
+                            </el-col>
+
+                            <el-col :span="12">
+
+                                <el-form-item label="收货地址" prop="address">
+
+                                    <el-input v-model="formData.address"/>
+
+                                </el-form-item>
+
+                            </el-col>
+
+<!--                            <el-col :span="12">-->
+
+<!--                                <el-form-item label="姓名" prop="name">-->
+
+<!--                                    <el-input v-model="formData.name"/>-->
+
+<!--                                </el-form-item>-->
+
+<!--                            </el-col>-->
+
+                        </el-row>
+
+                    </el-form>
+
+                    <div slot="footer" class="dialog-footer">
+
+                        <el-button @click="dialogFormVisible4Edit = false">取消</el-button>
+
+                        <el-button type="primary" @click="handleEdit()">确定</el-button>
+
+                    </div>
+
+                </el-dialog>
+            </div>
+
+
+    </section>
+</main>
+    </div>
+
+
+
+<script src="../../js/vue.js"></script>
+
+<script src="../../plugins/elementui/index.js"></script>
+
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+
+<script src="../../js/axios-0.18.0.js"></script>
+
+<script>
+    var vue = new Vue({
+
+        el: '#app',
+        data:{
+            dialogFormVisible4Edit:false,
+            userInfo: {},
+            formData: {},
+            rules: {
+                password: [{ required: true, message: '密码为必填项', trigger: 'blur' }],
+                username: [{ required: true, message: '用户名为必填项', trigger: 'blur' }]
+            },
+        },
+
+        created() {
+            const userInfo = window.localStorage.getItem('userInfo')
+            if (userInfo) {
+                this.userInfo = JSON.parse(userInfo)
+            }
+            this.closeLoading();
+        },
+
+        methods: {
+
+            handleUpdate() {
+                this.formData = this.userInfo;
+                this.dialogFormVisible4Edit = true;
+            },
+
+            handleEdit() {
+                axios.put("../../users",this.formData).then((res)=>{
+                    if(res.data.code == 60004){
+                        this.dialogFormVisible4Edit = false;
+                        this.$message.success("修改成功,请重新登录");
+                        window.localStorage.setItem('userInfo', JSON.stringify(res.data.data))
+                        window.parent.location.href = "../login/login.html";
+                    }else if(res.data.code == 20031){
+                        this.dialogFormVisible4Edit = false;
+                        this.$message.success("修改成功");
+                        console.log(this.userInfo)
+                    } else if(res.data.code == 20030){
+                        this.$message.error("修改失败");
+                    }else{
+                        this.$message.error(res.data.msg);
+                    }
+                });
+            },
+        }
+    })
+
+</script>
+</body>
+</html>
